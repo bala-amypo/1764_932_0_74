@@ -16,25 +16,20 @@ import com.example.demo.service.StudentService;
 
 @RestController
 public class StudentController {
-
     @Autowired
     StudentService ser;
-
     @PostMapping("/addStudents")
     public StudentEntity addStudents(@RequestBody StudentEntity student){
         return ser.addStudents(student);
     }
-    
     @GetMapping("/getStudents")
     public List<StudentEntity> getStudents() {
         return ser.getStudents();
     }
-    
     @GetMapping("/getStudent/{id}")
     public StudentEntity getStudentById(@PathVariable Long id) {
         return ser.getStudentById(id);
     }
-
     @DeleteMapping("/deleteStudent/{id}")
     public String deleteStudentById(@PathVariable Long id) {
         StudentEntity student = ser.getStudentById(id);
@@ -45,5 +40,4 @@ public class StudentController {
             return "Student not found.";
         }
     }
-
 }
