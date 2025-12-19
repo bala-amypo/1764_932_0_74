@@ -11,8 +11,8 @@ public class StudentEntity {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Email(message="Invalide email")
-    
+    @Email(message="Invalid email")
+    @NotBlank(message="Invalid ")
     private String email;
     private float cgpa;
     public StudentEntity(String name,String email,float cgpa){
